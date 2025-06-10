@@ -1,19 +1,23 @@
-package com.tickets.dash_tickets.model.service;
+package com.tickets.dash_tickets.service;
 
-import com.tickets.dash_tickets.DTO.ParticipacaoTicketsClienteDTO;
-import com.tickets.dash_tickets.DTO.ParticipacaoTicketsModuloDTO;
-import com.tickets.dash_tickets.model.entities.Clientes;
-import com.tickets.dash_tickets.model.entities.Modulo;
-import com.tickets.dash_tickets.model.entities.Tickets;
-import com.tickets.dash_tickets.model.repository.ClientesRepository;
-import com.tickets.dash_tickets.model.repository.ModuloRepository;
-import com.tickets.dash_tickets.model.repository.TicketsRepository;
+import com.tickets.dash_tickets.controller.DTO.ParticipacaoTicketsClienteDTO;
+import com.tickets.dash_tickets.controller.DTO.ParticipacaoTicketsModuloDTO;
+import com.tickets.dash_tickets.controller.DTO.TicketsDTO;
+import com.tickets.dash_tickets.controller.DTO.formataJsonFinalDTO;
+import com.tickets.dash_tickets.entities.Clientes;
+import com.tickets.dash_tickets.entities.Modulo;
+import com.tickets.dash_tickets.entities.Tickets;
+import com.tickets.dash_tickets.repository.ClientesRepository;
+import com.tickets.dash_tickets.repository.ModuloRepository;
+import com.tickets.dash_tickets.repository.TicketsRepository;
 import org.springframework.stereotype.Service;
 
 
 import java.time.YearMonth;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -37,7 +41,13 @@ public class TicketsService {
                       .toList();
     }
 
-    //agrupamento por cliente. Recebe mês e ano, retorna qtd de tickets abertos naquele período;
+    //retornar tickets filtrados para JSON
+    public List<TicketsDTO> retornaTodosTickets(Integer mes, Integer ano){
+        List<Tickets> tickets = filterByMonthAndYear(mes, ano);
+        return tickets.stream().map(Tickets::toDTO).collect(Collectors.toList());
+    }
+
+    //agrupamento por cliente
     public List<ParticipacaoTicketsClienteDTO> totalTicketsCliente(Integer mes, Integer ano){
         List<ParticipacaoTicketsClienteDTO> ticketsClienteDTOS = new ArrayList<>();
         List<Tickets> tickets = filterByMonthAndYear(mes, ano);
@@ -68,5 +78,14 @@ public class TicketsService {
         }
         return ticketsModuloDTOS;
     }
+
+    //Retorna o JSON final formatado com os dados
+    public List<formataJsonFinalDTO> formataJsonFinalDTO(Integer mes, Integer ano) {
+        List<formataJsonFinalDTO> formataJsonFinalDTO = new ArrayList<>();
+        formataJsonFinalDTO.add(new formataJsonFinalDTO(totalTicketsModulo(mes, ano), totalTicketsCliente(mes, ano),retornaTodosTickets(mes,ano)));
+        return formataJsonFinalDTO;
+    }
+
+    //TODO implementar o swagger - Documentação
 
 }

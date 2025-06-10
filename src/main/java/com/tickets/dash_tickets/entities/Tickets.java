@@ -1,12 +1,14 @@
-package com.tickets.dash_tickets.model.entities;
+package com.tickets.dash_tickets.entities;
 
 
+import com.tickets.dash_tickets.controller.DTO.TicketsDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "ticket")
@@ -32,5 +34,9 @@ public class Tickets {
     private LocalDate dataAbertura;
     @Column(name = "closing_date")
     private LocalDate dataEncerramento;
+
+    public TicketsDTO toDTO(){
+        return new TicketsDTO(this.id, this.nome, this.codCliente, this.codModulo, this.dataAbertura, this.dataEncerramento);
+    }
 
 }

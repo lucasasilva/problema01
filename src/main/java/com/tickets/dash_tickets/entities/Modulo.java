@@ -1,4 +1,4 @@
-package com.tickets.dash_tickets.model.entities;
+package com.tickets.dash_tickets.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
