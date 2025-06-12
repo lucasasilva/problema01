@@ -57,7 +57,7 @@ public class TicketsService {
                             .filter(t->t.getCodCliente().getId().equals(cliente.getId()))
                             .count();
             if (contagem > 0) {
-                ticketsClienteDTOS.add(new ParticipacaoTicketsClienteDTO(cliente.getId(), contagem));
+                ticketsClienteDTOS.add(new ParticipacaoTicketsClienteDTO(cliente, contagem));
             }
         }
         return ticketsClienteDTOS;
@@ -73,7 +73,7 @@ public class TicketsService {
                     .filter(t-> t.getCodModulo().getId().equals(modulo.getId()))
                     .count();
             if (contagem > 0) {
-                ticketsModuloDTOS.add(new ParticipacaoTicketsModuloDTO(modulo.getId(), contagem));
+                ticketsModuloDTOS.add(new ParticipacaoTicketsModuloDTO(modulo, contagem));
             }
         }
         return ticketsModuloDTOS;

@@ -6,6 +6,14 @@
 
 .container-graficos {
     display: flex;
+    justify-content: center;       
+}
+#grafico-modulos{
+    margin-left: 150px;
+}
+.container-seletor{
+    display: flex;
+    margin: 0 180px;
 }
 
 .cabecalho-tickets{
@@ -15,10 +23,27 @@
     gap: 20px;
 }
 
-.container-tickets{
+.container-tickets {
     border: 2px solid black;
-}
-.tickets{
+    margin: 40px auto; /* 40px de margem superior (dos gráficos) e centralizado horizontalmente */
+    width: 80%; /* reduz a largura total (você pode ajustar para 60%, 70%, etc) */
+    padding: 16px; /* espaçamento interno opcional */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* se você quer os tickets em coluna */
+    align-items: stretch; /* ocupa toda a largura interna */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* visual mais suave */
+    background-color: #fff; /* se desejar um fundo */
+    border-radius: 8px; /* bordas arredondadas */
+}
+.linha-ticket {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+  padding: 6px 0;
+}
+
+.coluna {
+  flex: 1;
+  text-align: center;
+  padding: 4px;
 }
