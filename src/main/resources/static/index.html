@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <title>Dash-tickets</title>
 </head>
 <body>
     <div class="container">
         <div class="container-graficos">
-            <div class="grafico-clientes"></div>
-            <div class="grafico-modulos"></div>
+            <div>
+                <canvas id="grafico-clientes"></canvas>
+              </div>
+            <div class="grafico-modulos">
+                lkjkljlkljkj
+            </div>
         </div>
         <div class="container-tickets">
+            <div class="cabecalho-tickets" id="cabecalho-tickets">
+                <div id="id" class="coluna">id<br></div>
+                <div id="Titulo" class="coluna">Titulo<br></div>
+                <div id="Cliente" class="coluna">Cliente<br></div>
+                <div id="dtAbertura" class="coluna">Data Abertura<br></div>
+                <div id="dtEncerramento" class="coluna">Data Encerramento<br></div>
+                <div id="Modulo" class="coluna">Modulo<br></div>
+            </div>
             <div class="tickets" id="tickets"></div>
         </div>
     </div>
     <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./charts.js"></script>
 </body>
 </html>

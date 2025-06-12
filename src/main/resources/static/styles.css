@@ -1,0 +1,24 @@
+*{
+    list-style-type: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.container-graficos {
+    display: flex;
+}
+
+.cabecalho-tickets{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.container-tickets{
+    border: 2px solid black;
+}
+.tickets{
+    display: flex;
+    justify-content: space-between;
+}
