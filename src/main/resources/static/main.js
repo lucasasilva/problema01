@@ -25,6 +25,8 @@ async function getData(body) {
   const dados = await response.json();
   //--------------------------------------------------------
 
+//TODO guardar uma referência a estes gráficos para poder destruílos ao recarregar a página
+
   //criar gráfico clientes
   const clientesGrafico = document.getElementById("grafico-clientes");
   function criarGraficoClientes(dadosJson) {
