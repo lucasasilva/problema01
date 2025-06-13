@@ -2,11 +2,13 @@ pontos a otimizar:
 
 NA API: 
 método para passagem de query já filtrando mês e ano diretamente;
+Alterar método de geração do JSON, para guardar somente o 
 
 No front:
 Trazer os dados dos clientes e módulos em um array separado no JSON, percorrendo quando necessário achar uma informação necessária para exibição, em vez do trazer estes dados anexos ao JSON
 Gerar JSONs de importação separados para cada array após o fetching, a fim de facilitar a organização do código do front e localizar de um jeito mais ágil a informação;
 Tornar a lista de tickets mais dinâmica, a fim de tornar a informação mais manipulável pelo usuário (organização cresce/decrescente, data, exportação);
+Atualizar lista de tickets ao gravar um novo
 
 Bugs:
 Há um erro de lógica que impede a aplicação do seletor, em que esse quebre a geração dos gráficos.

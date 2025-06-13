@@ -86,6 +86,11 @@ public class TicketsService {
         return formataJsonFinalDTO;
     }
 
+    //criar ticket
+    public void criarTicket(Tickets tickets){
+        ticketsRepository.save(tickets);
+    }
+
     //TODO implementar o swagger - Documentação
 
 }
